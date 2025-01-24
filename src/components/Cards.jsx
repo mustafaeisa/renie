@@ -14,13 +14,13 @@ function Card({ autoSlide = true, items, curentId, setCurentId }) {
   const prev = () => setCurentId((curentId) => curentId - 1);
   const next = () =>
     setCurentId((curentId) =>
-      curentId + 1 === items.length ? curentId : curentId + 1
+      curentId + 1 === items.length ? 0 : curentId + 1
     );
-  // useEffect(() => {
-  //   if (!autoSlide) return;
-  //   const slideInterval = setInterval(next, 3000);
-  //   return () => clearInterval(slideInterval);
-  // }, []);
+  useEffect(() => {
+    if (!autoSlide) return;
+    const slideInterval = setInterval(next, 3000);
+    return () => clearInterval(slideInterval);
+  }, []);
   return (
     <div className="overflow-hidden relative w-[300px] h-[200px]  md:h-80 md:w-96 rounded-lg">
       <div className="slide flex  h-full w-full rounded-lg">
