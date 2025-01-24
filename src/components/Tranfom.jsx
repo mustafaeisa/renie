@@ -20,7 +20,7 @@ function Transform({ items, curentId }) {
   gsap.registerPlugin(MotionPathPlugin);
 
   gsap.to("#rect", {
-    duration: 10,
+    duration: 6,
     repeat: 12,
     repeatDelay: 3,
 

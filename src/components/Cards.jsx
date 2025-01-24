@@ -46,7 +46,7 @@ function Card({ autoSlide = true, items, curentId, setCurentId }) {
                 <button className=" bg-white hover:bg-cyan-200 text-black text-lg  py-1 px-2 rounded-full absolute bottom-2 right-14">
                   <FiArrowLeft onClick={prev} />
                 </button>
-                <button className=" hover:bg-cyan-200 bg-white text-black text-lg  py-1 px-2 rounded-full absolute bottom-2 right-3">
+                <button className="   hover:bg-cyan-200 bg-white text-black text-lg  py-1 px-2 rounded-full absolute bottom-2 right-3">
                   <FiArrowRight onClick={next} />
                 </button>
               </>
