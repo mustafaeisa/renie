@@ -20,23 +20,39 @@ function Card({
   });
 
   const prev = () =>
-    setCurentId((curentId, end) => {
-      setCurentId(curentId - 1);
+    setCurentId((curentId) => {
+      setCurentId(curentId - 1 < 0 ? 0 : curentId - 1);
       setStart(ends[curentId]);
       setEnd(ends[curentId - 1]);
     });
   const next = () =>
-    setCurentId(
-      (curentId, end) => (curentId + 1 === items.length ? 0 : curentId + 1),
-      setStart(ends[curentId]),
+    setCurentId((curentId) => {
+      setCurentId(curentId + 1 === items.length ? 0 : curentId + 1);
+      setStart(ends[curentId]);
+      setEnd(ends[curentId + 1]);
+    });
+  // setCurentId(
+  //   (curentId) => (curentId + 1 === items.length ? 0 : curentId + 1);
+  //   setStart(ends[curentId]);
 
-      setEnd(ends[curentId + 1])
-    );
-  // useEffect(() => {
-  //   if (!autoSlide) return;
-  //   const slideInterval = setInterval(next, 4000);
-  //   return () => clearInterval(slideInterval);
-  // }, [curentId]);
+  //   setEnd(ends[curentId + 1])
+  // );
+  useEffect(() => {
+    document.addEventListener("keydown", dectecKeyDown);
+
+    // if (!autoSlide) return;
+    // const slideInterval = setInterval(next, 4000);
+    // return () => clearInterval(slideInterval);
+  }, []);
+  const dectecKeyDown = (e) => {
+    if (e.key == "ArrowLeft") {
+      //
+      prev();
+    }
+    if (e.key == "ArrowRight") {
+      next();
+    }
+  };
   return (
     <div className="overflow-hidden relative  w-[92vw] h-[200px] gap-2  md:h-80 md:w-96 rounded-lg">
       <div className="slide flex  h-full w-full rounded-lg">

@@ -23,13 +23,11 @@ function Transform({
   gsap.to("#rect", {
     duration: 3,
     // repeat: 12,
-    repeatDelay: 3,
 
     motionPath: {
       path: "#path",
       align: "#path",
-      // 0 0.4
-      // 0.4 .68
+
       start: `${start}`,
       end: `${end}`,
       autoRotate: true,
