@@ -7,7 +7,7 @@ import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 function Card({ autoSlide = true, items, curentId, setCurentId }) {
   gsap.to(".slide", {
     x: `-${curentId * 100}%`,
-    duration: 1,
+    duration: 3,
     ease: "power3.inOut",
   });
 
@@ -16,19 +16,19 @@ function Card({ autoSlide = true, items, curentId, setCurentId }) {
     setCurentId((curentId) =>
       curentId + 1 === items.length ? 0 : curentId + 1
     );
-  useEffect(() => {
-    if (!autoSlide) return;
-    const slideInterval = setInterval(next, 3000);
-    return () => clearInterval(slideInterval);
-  }, []);
+  // useEffect(() => {
+  //   if (!autoSlide) return;
+  //   const slideInterval = setInterval(next, 3000);
+  //   return () => clearInterval(slideInterval);
+  // }, []);
   return (
-    <div className="overflow-hidden relative w-[300px] h-[200px]  md:h-80 md:w-96 rounded-lg">
+    <div className="overflow-hidden relative w-[300px] h-[200px] gap-2  md:h-80 md:w-96 rounded-lg">
       <div className="slide flex  h-full w-full rounded-lg">
         {items.map((card, id) => (
           <div
             key={id}
             className={
-              "flex-shrink-0 relative  bg-gradient-to-tr from-[#4a61dd] to-[#c8216f]  w-full text-white  rounded-lg  p-3 mx-auto  h-full flex flex-col gap-3"
+              "flex-shrink-0 relative   bg-gradient-to-tr from-[#4a61dd] to-[#c8216f]  w-full text-white  rounded-lg  p-3 mx-auto  h-full flex flex-col gap-3"
             }
           >
             <h1>step {card.id}</h1>

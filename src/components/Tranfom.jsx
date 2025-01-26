@@ -2,26 +2,26 @@ import React from "react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/src/all";
 const btns = [
-  <button className=" absolute top-0 left-3 bg-white text-black rounded-full px-3 py-0.5">
+  <button className=" absolute top-0 left-3 bg-white text-black rounded-full px-3 py-0.5 cursor-pointer">
     step 1
   </button>,
-  <button className=" absolute top-[30%] left-[25%] bg-white text-black rounded-full px-3 py-0.5">
+  <button className=" absolute top-[30%] left-[25%] bg-white text-black rounded-full px-3 py-0.5 cursor-pointer">
     step 2
   </button>,
-  <button className=" absolute top-[59%] left-[60%] bg-white text-black rounded-full px-3 py-0.5">
+  <button className=" absolute top-[59%] left-[60%] bg-white text-black rounded-full px-3 py-0.5 cursor-pointer">
     step 3
   </button>,
-  <button className=" absolute bottom-3 left-3 bg-white text-black rounded-full px-3 py-0.5">
+  <button className=" absolute bottom-3 left-3 bg-white text-black rounded-full px-3 py-0.5 cursor-pointer">
     step 4
   </button>,
 ];
 
-function Transform({ items, curentId }) {
+function Transform({ items, curentId, setCurentId }) {
   gsap.registerPlugin(MotionPathPlugin);
 
   gsap.to("#rect", {
     duration: 6,
-    repeat: 12,
+    // repeat: 12,
     repeatDelay: 3,
 
     motionPath: {
@@ -34,9 +34,13 @@ function Transform({ items, curentId }) {
   // GSDevTools.create({ animation: amimtae });
   return (
     <div className=" relative w-[300px] md:w-[500px]  bg-gradient-to-br from-white to-[#4a61dd]  rounded-xl overflow-hidden ">
-      <div className=" absolute h-full w-full">
+      <div className=" absolute h-full w-full ">
         {btns.map((btn, i) => (
-          <div key={i} className=" bg-white">
+          <div
+            key={i}
+            className={i === curentId ? "active" : ""}
+            onClick={() => setCurentId(i)}
+          >
             {btn}
           </div>
         ))}
