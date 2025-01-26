@@ -1,19 +1,13 @@
 import React from "react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/src/all";
+const btbClases =
+  "hover:opacity-90 hover:scale-110 transition-all duration-400 ease-in-out absolute rounded-full px-3 py-0.5 cursor-pointer bg-white";
 const btns = [
-  <button className=" absolute top-0 left-3 bg-white text-black rounded-full px-3 py-0.5 cursor-pointer">
-    step 1
-  </button>,
-  <button className=" absolute top-[30%] left-[25%] bg-white text-black rounded-full px-3 py-0.5 cursor-pointer">
-    step 2
-  </button>,
-  <button className=" absolute top-[59%] left-[60%] bg-white text-black rounded-full px-3 py-0.5 cursor-pointer">
-    step 3
-  </button>,
-  <button className=" absolute bottom-3 left-3 bg-white text-black rounded-full px-3 py-0.5 cursor-pointer">
-    step 4
-  </button>,
+  <button className={btbClases + " top-0 left-3 "}>step 1</button>,
+  <button className={btbClases + " top-[30%] left-[25%] "}>step 2</button>,
+  <button className={btbClases + " top-[59%] left-[60%]  "}>step 3</button>,
+  <button className={btbClases + " bottom-3 left-3 bg-white  "}>step 4</button>,
 ];
 
 function Transform({ items, curentId, setCurentId }) {
