@@ -22,7 +22,7 @@ function Card({ autoSlide = true, items, curentId, setCurentId }) {
   //   return () => clearInterval(slideInterval);
   // }, []);
   return (
-    <div className="overflow-hidden relative w-[300px] h-[200px] gap-2  md:h-80 md:w-96 rounded-lg">
+    <div className="overflow-hidden relative  w-[92vw] h-[200px] gap-2  md:h-80 md:w-96 rounded-lg">
       <div className="slide flex  h-full w-full rounded-lg">
         {items.map((card, id) => (
           <div

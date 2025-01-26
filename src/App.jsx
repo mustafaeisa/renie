@@ -28,9 +28,9 @@ export function App() {
   return (
     <>
       {" "}
-      <div className=" flex items-center h-screen p-5 justify-center gap-5 flex-col md:flex-row">
+      <div className=" flex items-center h-screen  justify-center gap-5 flex-col md:flex-row">
         <button
-          className=" bg-emerald-50 text-black  absolute top-12 py-2 px-5 rounded-full"
+          className=" bg-[#c8216f] text-white  absolute bottom-24 py-2 px-5 rounded-full"
           onClick={() => setCurentId(0)}
         >
           rest

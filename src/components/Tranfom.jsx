@@ -27,7 +27,7 @@ function Transform({ items, curentId, setCurentId }) {
   });
   // GSDevTools.create({ animation: amimtae });
   return (
-    <div className=" relative w-[300px] md:w-[500px]  bg-gradient-to-br from-white to-[#4a61dd]  rounded-xl overflow-hidden ">
+    <div className=" relative w-[92vw] md:w-[500px] bg-gradient-to-br from-white to-[#4a61dd]  rounded-xl overflow-hidden ">
       <div className=" absolute h-full w-full ">
         {btns.map((btn, i) => (
           <div
