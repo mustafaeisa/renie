@@ -4,17 +4,33 @@ import { gsap } from "gsap";
 
 import { FiArrowLeft, FiArrowRight } from "react-icons/fi";
 
-function Card({ autoSlide = true, items, curentId, setCurentId }) {
+function Card({
+  autoSlide = true,
+  items,
+  curentId,
+  setCurentId,
+  ends,
+  setStart,
+  setEnd,
+}) {
   gsap.to(".slide", {
     x: `-${curentId * 100}%`,
     duration: 3,
     ease: "power3.inOut",
   });
 
-  const prev = () => setCurentId((curentId) => curentId - 1);
+  const prev = () =>
+    setCurentId((curentId, end) => {
+      setCurentId(curentId - 1);
+      setStart(ends[curentId]);
+      setEnd(ends[curentId - 1]);
+    });
   const next = () =>
-    setCurentId((curentId) =>
-      curentId + 1 === items.length ? 0 : curentId + 1
+    setCurentId(
+      (curentId, end) => (curentId + 1 === items.length ? 0 : curentId + 1),
+      setStart(ends[curentId]),
+
+      setEnd(ends[curentId + 1])
     );
   // useEffect(() => {
   //   if (!autoSlide) return;

@@ -22,8 +22,12 @@ const cards = [
     text: "Lorem Ipsum is simply dummy text of the printing and type setting industry.",
   },
 ];
+const ends = [0, 0.4, 0.68, 1];
 export function App() {
   const [curentId, setCurentId] = useState(0);
+
+  const [start, setStart] = useState(0);
+  const [end, setEnd] = useState(0);
 
   return (
     <>
@@ -31,13 +35,26 @@ export function App() {
       <div className=" flex items-center h-screen  justify-center gap-5 flex-col md:flex-row">
         <button
           className=" bg-[#c8216f] text-white  absolute bottom-24 py-2 px-5 rounded-full"
-          onClick={() => setCurentId(0)}
+          onClick={() => {
+            setCurentId(0);
+          }}
         >
           rest
         </button>
-        <Card items={cards} curentId={curentId} setCurentId={setCurentId} />
-        <Transform
+        <Card
           items={cards}
+          curentId={curentId}
+          setCurentId={setCurentId}
+          setEnd={setEnd}
+          setStart={setStart}
+          ends={ends}
+        />
+        <Transform
+          start={start}
+          end={end}
+          setEnd={setEnd}
+          setStart={setStart}
+          ends={ends}
           curentId={curentId}
           setCurentId={setCurentId}
         />

@@ -1,26 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import gsap from "gsap";
 import { MotionPathPlugin } from "gsap/src/all";
 const btbClases =
-  "hover:opacity-90 hover:scale-110 transition-all duration-400 ease-in-out absolute rounded-full px-3 py-0.5 cursor-pointer bg-white";
+  "hover:opacity-90 hover:scale-110 transition-all duration-400 ease-in-out absolute rounded-full w-24 h-11 px-3 py-0.5 cursor-pointer bg-white";
 const btns = [
   <button className={btbClases + " top-0 left-3 "}>step 1</button>,
-  <button className={btbClases + " top-[30%] left-[25%] "}>step 2</button>,
+  <button className={btbClases + " top-[29%] left-[25%] "}>step 2</button>,
   <button className={btbClases + " top-[59%] left-[60%]  "}>step 3</button>,
   <button className={btbClases + " bottom-3 left-3 bg-white  "}>step 4</button>,
 ];
-
-function Transform({ items, curentId, setCurentId }) {
+// const ends = [0, 0.4, 0.68, 1];
+function Transform({
+  start,
+  end,
+  ends,
+  setStart,
+  setEnd,
+  curentId,
+  setCurentId,
+}) {
   gsap.registerPlugin(MotionPathPlugin);
-
   gsap.to("#rect", {
-    duration: 6,
+    duration: 3,
     // repeat: 12,
     repeatDelay: 3,
 
     motionPath: {
       path: "#path",
       align: "#path",
+      // 0 0.4
+      // 0.4 .68
+      start: `${start}`,
+      end: `${end}`,
       autoRotate: true,
       alignOrigin: [0.5, 0.5],
     },
@@ -33,7 +44,11 @@ function Transform({ items, curentId, setCurentId }) {
           <div
             key={i}
             className={i === curentId ? "active" : ""}
-            onClick={() => setCurentId(i)}
+            onClick={() => {
+              setStart(ends[curentId]);
+              setCurentId(i);
+              setEnd(ends[i]);
+            }}
           >
             {btn}
           </div>
