@@ -34,9 +34,9 @@ function Card({
     );
   // useEffect(() => {
   //   if (!autoSlide) return;
-  //   const slideInterval = setInterval(next, 3000);
+  //   const slideInterval = setInterval(next, 4000);
   //   return () => clearInterval(slideInterval);
-  // }, []);
+  // }, [curentId]);
   return (
     <div className="overflow-hidden relative  w-[92vw] h-[200px] gap-2  md:h-80 md:w-96 rounded-lg">
       <div className="slide flex  h-full w-full rounded-lg">

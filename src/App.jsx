@@ -36,7 +36,9 @@ export function App() {
         <button
           className=" bg-[#c8216f] text-white  absolute bottom-24 py-2 px-5 rounded-full"
           onClick={() => {
+            setStart(ends[curentId]);
             setCurentId(0);
+            setEnd(ends[0]);
           }}
         >
           rest
